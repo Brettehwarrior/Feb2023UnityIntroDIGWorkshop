@@ -10,6 +10,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float jumpSpeed = 10f;
     [SerializeField] private float moveSpeed = 10f;
 
+    private bool _canJump = true;
+
     // Update is called once per frame
     void Update()
     {
@@ -17,9 +19,10 @@ public class PlayerController : MonoBehaviour
         
         rb.AddForce(new Vector2(horizontalInput, 0f) * moveSpeed * Time.deltaTime);
         
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (_canJump && Input.GetKeyDown(KeyCode.Space))
         {
             Jump();
+            _canJump = false;
         }
     }
 

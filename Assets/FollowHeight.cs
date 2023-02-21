@@ -9,6 +9,9 @@ public class FollowHeight : MonoBehaviour
 
     private void Update()
     {
+        if (target == null)
+            return;
+        
         if (transform.position.y < target.position.y)
         {
             transform.position = new Vector3(transform.position.x, target.position.y, transform.position.z);

@@ -8,8 +8,11 @@ public class UpdateScore : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI tmp;
 
+    private int _score;
+
     private void Update()
     {
-        tmp.text = Mathf.Floor(transform.position.y).ToString();
+        _score = Mathf.FloorToInt(transform.position.y);
+        tmp.text = _score.ToString();
     }
 }
